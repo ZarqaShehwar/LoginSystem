@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "158080734738",
+    "project_id": "login-bdf50",
+    "storage_bucket": "login-bdf50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158080734738:android:f1cfcba07a58440458eacb",
+        "android_client_info": {
+          "package_name": "com.example.login_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158080734738-3q8bj1ihck2ajashl7kh8vltv7uo80np.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV1YPKSCIALqaSuTkfMPBSItQI5znjJ5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158080734738-3q8bj1ihck2ajashl7kh8vltv7uo80np.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

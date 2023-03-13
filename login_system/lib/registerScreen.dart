@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:login_system/customizedButton.dart';
 import 'package:login_system/loginScreen.dart';
 import 'package:login_system/textfield.dart';
+import 'package:login_system/welcomeScreen%20.dart';
  class ForgotPassword extends StatefulWidget {
    const ForgotPassword({super.key});
  
@@ -53,14 +54,14 @@ import 'package:login_system/textfield.dart';
           children:[
             Container(
               height:1,
-              width:MediaQuery.of(context).size.height*0.15,
+              width:MediaQuery.of(context).size.height*0.20,
               decoration: BoxDecoration(color: Colors.grey),
             
             ),
-           const   Text("Or Login with",style: TextStyle(fontSize: 8,color: Colors.black),),
+           const   Text("Or Login with",style: TextStyle(fontSize: 10,color: Colors.black),),
             Container(
               height:1,
-              width:MediaQuery.of(context).size.height*0.17,
+              width:MediaQuery.of(context).size.height*0.15,
               decoration:BoxDecoration(color:Colors.grey)
             
             ),

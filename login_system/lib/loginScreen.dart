@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:login_system/Connection%20Firebase/authentication.dart';
 import 'package:login_system/customizedButton.dart';
 import 'package:login_system/registerScreen.dart';
 import 'package:login_system/textbutton.dart';
 import 'package:login_system/textfield.dart';
 import 'package:login_system/register.dart';
+import 'package:login_system/welcomeScreen%20.dart';
+import 'package:login_system/widgets/snackbar.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -15,6 +18,19 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  void Login()async{
+    String email = emailcontroller.text;
+    String password = passwordcontroller.text;
+   
+     String res = await FirebaseAuthentication().Login(email, password);
+     if(res=="Succes"){
+      ShowSnackbar(res,  context);
+     }
+     else{
+      ShowSnackbar(res, context);
+     }
+
+  }
 
 
   @override
@@ -38,7 +54,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 border:Border.all(color: Colors.black,width:1 ),
                 borderRadius: BorderRadius.circular(10)),
                 child:IconButton(onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (contex){
+                    return  const WelcomeScreen();
+                  }));
                 }, icon: const Icon(Icons.arrow_back_ios_sharp)),
               )
             ),
@@ -58,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
             () {   Navigator.pushReplacement(context, MaterialPageRoute(builder:
            (context){
             return const  ForgotPassword();
-              
+               
 
             }));
           }),
@@ -69,24 +87,26 @@ class _LoginScreenState extends State<LoginScreen> {
           height:10
          ),
          CustomizedButton(buttontext: "Log In", buttoncolor: Colors.white, containercolor: Colors.black, onpressed: (){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-            return const LoginScreen();
-          }),
-           );
+          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+          // //   return const LoginScreen();
+          // Login();
+          // }),
+          //  );
+          Login();
          }),
          Padding(padding: EdgeInsets.all(8),
          child: Row(
           children: [
             Container(
               height:1,
-              width:MediaQuery.of(context).size.height*0.15,
+              width:MediaQuery.of(context).size.height*0.20,
               decoration: BoxDecoration(color: Colors.grey),
             
             ),
-           const   Text("Or Login with",style: TextStyle(fontSize: 8,color: Colors.black),),
+           const   Text("Or Login with",style: TextStyle(fontSize: 10,color: Colors.black),),
             Container(
               height:1,
-              width:MediaQuery.of(context).size.height*0.17,
+              width:MediaQuery.of(context).size.height*0.15,
               decoration:BoxDecoration(color:Colors.grey)
             
             ),

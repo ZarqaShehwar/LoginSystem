@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:login_system/Connection%20Firebase/authentication.dart';
+import 'package:login_system/Connection%20Firebase/googleSignIn.dart';
 import 'package:login_system/customizedButton.dart';
 import 'package:login_system/registerScreen.dart';
 import 'package:login_system/textbutton.dart';
@@ -8,6 +9,7 @@ import 'package:login_system/textfield.dart';
 import 'package:login_system/register.dart';
 import 'package:login_system/welcomeScreen%20.dart';
 import 'package:login_system/widgets/snackbar.dart';
+import 'package:provider/provider.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -132,7 +134,10 @@ class _LoginScreenState extends State<LoginScreen> {
               border:  Border.all(color: Colors.black,width: 1,),
               borderRadius: BorderRadius.circular(10),
             ),
-            child:IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.google,
+            child:IconButton(onPressed: (){
+              final provider = Provider.of<GoogleSigInProvider>(context,listen: false);
+              provider.googleLogin();
+            }, icon:const Icon(FontAwesomeIcons.google,
             )),
           ),
            Container(
